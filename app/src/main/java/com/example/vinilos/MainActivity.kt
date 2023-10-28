@@ -31,12 +31,12 @@ class MainActivity : AppCompatActivity() {
             val generoTxt: EditText = findViewById(R.id.album_genero)
             val disqueraTxt: EditText = findViewById(R.id.album_disquera)
             val postParams = mapOf<String, Any>(
-                "nombre" to nameTxt.text.toString(),
+                "name" to nameTxt.text.toString(),
                 "cover" to coverTxt.text.toString(),
-                "fechaLanzamiento" to fechaLanzamientoTxt.text.toString(),
-                "descripcion" to descripcionTxt.text.toString(),
-                "genero" to generoTxt.text.toString(),
-                "disquera" to disqueraTxt.text.toString()
+                "releaseDate" to fechaLanzamientoTxt.text.toString(),
+                "description" to descripcionTxt.text.toString(),
+                "genre" to generoTxt.text.toString(),
+                "recordLabel" to disqueraTxt.text.toString()
             )
             volleyBroker.instance.add(VolleyBroker.postRequest("albums", JSONObject(postParams),
                 Response.Listener<JSONObject> { response ->
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 },
                 Response.ErrorListener {
                     Log.d("TAG", it.toString())
-                    postResultTextView.text = "That didn't work!"
+                    postResultTextView.text = it.toString()
                 }
             ))
         }
