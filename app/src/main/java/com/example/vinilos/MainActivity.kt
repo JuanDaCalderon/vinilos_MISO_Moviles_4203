@@ -23,10 +23,7 @@ class MainActivity : AppCompatActivity() {
         val getResultTextView : TextView = findViewById(R.id.get_result_text)
         getButton.setOnClickListener {
 
-            val idAlbum: EditText = findViewById(R.id.id_album)
-            val album = idAlbum.text
-
-            volleyBroker.instance.add(VolleyBroker.getRequest("albums/" + album,
+            volleyBroker.instance.add(VolleyBroker.getRequest("albums",
                 { response ->
                     // Display the first 500 characters of the response string.
                     getResultTextView.text = "Response is: ${response}"
