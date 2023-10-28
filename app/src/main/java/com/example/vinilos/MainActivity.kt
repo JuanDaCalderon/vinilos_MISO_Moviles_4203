@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.android.volley.Response
 import com.example.vinilos.broker.VolleyBroker
 
 
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val getResultTextView : TextView = findViewById(R.id.get_result_text)
         getButton.setOnClickListener {
 
-            val idAlbum: EditText = findViewById(R.id.id_album);
+            val idAlbum: EditText = findViewById(R.id.id_album)
             val album = idAlbum.text
 
             volleyBroker.instance.add(VolleyBroker.getRequest("albums/" + album,
