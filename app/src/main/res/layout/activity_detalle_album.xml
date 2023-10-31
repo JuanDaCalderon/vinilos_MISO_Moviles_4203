@@ -85,10 +85,10 @@
             <EditText
                 android:id="@+id/id_album"
                 android:layout_width="392dp"
-                android:layout_height="73dp"
+                android:layout_height="65dp"
+                android:hint="Id album"
                 android:inputType="text"
-                android:text="@string/id_album_text"
-                android:hint="Id album" />
+                android:text="@string/id_album_text" />
 
             <Button
                 android:id="@+id/get_albums_button"
@@ -96,6 +96,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/get_albums" />
+            <Button
+                android:id="@+id/ir_a_listado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/ir_a_listado_text" />
         </LinearLayout>
     </ScrollView>
 

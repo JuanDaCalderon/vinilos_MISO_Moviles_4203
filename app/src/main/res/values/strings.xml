@@ -18,4 +18,6 @@
     <string name="Descripcion_placeholder">Descripción</string>
     <string name="Buscar">Buscar</string>
     <string name="id_album_text">100</string>
+    <string name="ir_a_detalle_text">Ir a detalle</string>
+    <string name="ir_a_listado_text">Ir a listado</string>
 </resources>

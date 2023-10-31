@@ -88,6 +88,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/get_albums" />
+
+            <Button
+                android:id="@+id/ir_a_detalle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/ir_a_detalle_text" />
         </LinearLayout>
     </ScrollView>
 

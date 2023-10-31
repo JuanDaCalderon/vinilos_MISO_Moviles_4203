@@ -1,8 +1,11 @@
 package com.example.vinilos
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -33,6 +36,11 @@ class MainActivity : AppCompatActivity() {
                     getResultTextView.text = it.toString()
                 }
             ))
+        }
+        val irDetalleAlbumButton: Button = findViewById(R.id.ir_a_detalle)
+        irDetalleAlbumButton.setOnClickListener {
+            val intent = Intent(this, DetalleAlbum::class.java)
+            startActivity((intent))
         }
     }
 }
