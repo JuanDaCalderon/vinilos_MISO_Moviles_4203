@@ -17,4 +17,5 @@
     <string name="Disquera_placeholder">Disquera</string>
     <string name="Descripcion_placeholder">Descripción</string>
     <string name="Buscar">Buscar</string>
+    <string name="id_album_text">100</string>
 </resources>
