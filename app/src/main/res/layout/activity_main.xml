@@ -1,68 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
+    android:background="@color/grey_background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:orientation="vertical"
-        tools:context=".MainActivity">
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/album_nombre"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:hint="Nombre del album" />
-
-        <EditText
-            android:id="@+id/album_cover"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cover del album" />
+            app:menu="@menu/toolbar_menu"
+            app:navigationIcon="@drawable/baseline_menu_24"
+            app:title="@string/tab_name"
+            app:titleTextColor="?attr/colorOnPrimary" />
 
-        <EditText
-            android:id="@+id/album_fecha_lanzamiento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Fecha lanzamiento" />
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <EditText
-            android:id="@+id/album_descripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Descripcion del album" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        app:tabGravity="fill"
+        app:tabIconTint="@color/dark_purple"
+        app:tabIndicatorColor="?attr/colorOnPrimary"
+        app:tabIndicatorFullWidth="true"
+        app:tabTextColor="?attr/colorOnPrimary">
 
-        <EditText
-            android:id="@+id/album_genero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Genero del album" />
-
-        <EditText
-            android:id="@+id/album_disquera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Disquera del album" />
-
-        <TextView
-            android:id="@+id/get_result_text"
+        <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="respuesta"
-            android:textSize="30sp" />
+            android:text="@string/Tracks" />
 
-        <Button
-            android:id="@+id/post_album_button"
-            android:layout_width="118dp"
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/post_album" />
+            android:text="@string/Albumes" />
 
-        ...
-    </LinearLayout>
-</ScrollView>
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Artistas" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Coleccionista" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
+
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabMenu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewAlbum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/album_card" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
+
+

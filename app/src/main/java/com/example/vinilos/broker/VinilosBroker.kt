@@ -20,7 +20,5 @@ class VolleyBroker constructor(context: Context) {
         fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
             return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
         }
-
     }
-
 }
