@@ -16,4 +16,5 @@
     <string name="Disquera_placeholder">Disquera</string>
     <string name="Descripcion_placeholder">Descripción</string>
     <string name="Buscar">Buscar</string>
+    <string name="post_album">Crear</string>
 </resources>

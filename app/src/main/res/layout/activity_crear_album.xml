@@ -10,44 +10,75 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:orientation="vertical"
-        tools:context=".MainActivity">
+        tools:context=".Activity_crear_album">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/album_nombre"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre del album"
-            />
+            android:hint="Nombre" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/album_cover"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cover del album"/>
+            android:hint="Cover"
+            android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/album_fecha_lanzamiento"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha lanzamiento"/>
+            android:hint="Fecha lanzamiento dd/mm/yyyy"
+            android:minHeight="48dp" />
 
-        <EditText
-            android:id="@+id/album_descripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Descripcion del album"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/album_genero"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Genero del album"/>
+            android:hint="Genero"
+            android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/album_disquera"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Disquera del album"/>
+            android:hint="Disquera del album"
+            android:minHeight="48dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/album_descripcion"
+            android:layout_width="match_parent"
+            android:layout_height="144dp"
+            android:hint="Descripcion del album" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/post_album_button"
@@ -63,7 +94,5 @@
             android:layout_gravity="center_horizontal"
             android:text="respuesta"
             android:textSize="30sp" />
-
-        ...
     </LinearLayout>
 </ScrollView>

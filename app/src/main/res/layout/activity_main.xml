@@ -14,47 +14,39 @@
 
         <EditText
             android:id="@+id/album_nombre"
-            android:layout_width="wrap_content"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="Nombre del album"
-            />
+            android:hint="Nombre del album" />
 
         <EditText
             android:id="@+id/album_cover"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cover del album"/>
+            android:hint="Cover del album" />
 
         <EditText
             android:id="@+id/album_fecha_lanzamiento"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha lanzamiento"/>
+            android:hint="Fecha lanzamiento" />
 
         <EditText
             android:id="@+id/album_descripcion"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descripcion del album"/>
+            android:hint="Descripcion del album" />
 
         <EditText
             android:id="@+id/album_genero"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Genero del album"/>
+            android:hint="Genero del album" />
 
         <EditText
             android:id="@+id/album_disquera"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Disquera del album"/>
-
-        <Button
-            android:id="@+id/post_album_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/post_album" />
+            android:hint="Disquera del album" />
 
         <TextView
             android:id="@+id/get_result_text"
@@ -63,6 +55,13 @@
             android:layout_gravity="center_horizontal"
             android:text="respuesta"
             android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/post_album_button"
+            android:layout_width="118dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/post_album" />
 
         ...
     </LinearLayout>
