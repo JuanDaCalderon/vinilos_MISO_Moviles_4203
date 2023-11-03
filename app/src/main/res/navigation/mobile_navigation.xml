@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_tracks">
+
+    <fragment
+        android:id="@+id/navigation_tracks"
+        android:name="com.example.vinilos.ui.tracks.TracksFragment"
+        android:label="@string/title_tracks"
+        tools:layout="@layout/fragment_tracks" />
+
+    <fragment
+        android:id="@+id/navigation_albums"
+        android:name="com.example.vinilos.ui.albums.AlbumsFragment"
+        android:label="@string/title_albums"
+        tools:layout="@layout/fragment_albums" />
+
+    <fragment
+        android:id="@+id/navigation_artistas"
+        android:name="com.example.vinilos.ui.artistas.ArtistasFragment"
+        android:label="@string/title_artistas"
+        tools:layout="@layout/fragment_artistas" />
+
+    <fragment
+        android:id="@+id/navigation_coleccionistas"
+        android:name="com.example.vinilos.ui.coleccionistas.ColeccionistasFragment"
+        android:label="@string/title_coleccionistas"
+        tools:layout="@layout/fragment_coleccionistas" />
+
+</navigation>

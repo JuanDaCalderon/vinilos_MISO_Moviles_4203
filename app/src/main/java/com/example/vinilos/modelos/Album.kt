@@ -1,4 +1,4 @@
-package com.example.vinilos
+package com.example.vinilos.modelos
 
 data class Album (
     val id:Int,
