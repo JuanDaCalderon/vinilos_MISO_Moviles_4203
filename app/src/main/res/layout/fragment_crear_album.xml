@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,6 +9,7 @@
     android:background="@color/grey_background"
     android:orientation="vertical"
     android:layout_gravity="end"
+    android:padding="10dp"
     tools:context=".CrearAlbumFragment">
 
     <Space
@@ -26,7 +27,8 @@
         android:hint="@string/Nombre_placeholder"
         android:inputType="text"
         android:minHeight="48dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -41,7 +43,8 @@
         android:hint="@string/Cover_placeholder"
         android:inputType="text"
         android:minHeight="48dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -56,7 +59,8 @@
         android:hint="@string/Lanzamiento_placeholder"
         android:inputType="date"
         android:minHeight="48dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -71,7 +75,8 @@
         android:hint="@string/Genero_placeholder"
         android:inputType="text"
         android:minHeight="48dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -87,7 +92,8 @@
         android:hint="@string/Disquera_placeholder"
         android:inputType="text"
         android:minHeight="48dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -102,7 +108,8 @@
         android:hint="@string/Descripcion_placeholder"
         android:inputType="text"
         android:minHeight="96dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:textColorHint="#546E7A" />
 
     <Space
         android:layout_width="match_parent"
@@ -121,8 +128,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/Crear_button_text"
-        android:gravity="bottom"/>
-
+        android:text="@string/Crear_button_text"  />
 
 </LinearLayout>
+
+
+
