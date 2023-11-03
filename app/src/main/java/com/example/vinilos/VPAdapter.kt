@@ -15,7 +15,6 @@ class VPAdapter(fragmentManager: FragmentManager, lifecycle: Lifecycle) : Fragme
             0 -> TracksFragment()
             1 -> AlbumesFragment()
             2 -> ArtistasFragment()
-            3 -> ColeccionistasFragment()
             else -> TracksFragment()
         }
     }
