@@ -19,4 +19,10 @@
     <string name="Buscar">Buscar</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="editText_nombre_hint">Nombre</string>
+    <string name="ediText_cover_hint">Cover</string>
+    <string name="editText_fecha_lanzamiento_hint">Fecha lanzamiento dd/mm/yyyy</string>
+    <string name="editText_genero_hint">Genero</string>
+    <string name="editText_disquera_del_album_hint">Disquera del album</string>
+    <string name="edit_hintdescripcion_del_album_hint">Descripcion del album</string>
 </resources>
