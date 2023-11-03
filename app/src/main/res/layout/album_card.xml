@@ -29,7 +29,7 @@
                 android:id="@+id/album_image"
                 android:layout_width="120dp"
                 android:layout_height="119dp"
-                android:contentDescription="@string/Albumes"
+                android:contentDescription="@string/title_albums"
                 app:srcCompat="@drawable/album" />
 
             <LinearLayout
@@ -58,9 +58,10 @@
                 android:id="@+id/icon"
                 android:layout_width="64dp"
                 android:layout_height="48dp"
-                android:contentDescription="@string/Albumes"
+                android:contentDescription="@string/title_albums"
                 android:paddingRight="10dp"
-                app:srcCompat="@drawable/baseline_library_books_24" />
+                app:srcCompat="@drawable/baseline_library_books_24"
+                app:tint="@color/purple"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
