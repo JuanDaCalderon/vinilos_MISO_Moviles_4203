@@ -76,110 +76,124 @@
 
         </androidx.viewpager2.widget.ViewPager2>
 
-
-        <Space
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:height="12dp"/>
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/album_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:background="@color/white"
-            android:hint="@string/editText_nombre_hint"
-            android:inputType="text"
-            android:autofillHints="Nombre" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="12dp"/>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <EditText
 
-        <EditText
-            android:id="@+id/album_cover"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:background="@color/white"
-            android:autofillHints="Cover"
-            android:hint="@string/ediText_cover_hint"
-            android:inputType="text" />
+                android:id="@+id/album_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="@string/editText_nombre_hint"
+                android:inputType="text"
+                android:autofillHints="Nombre" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
 
-        <EditText
-            android:id="@+id/album_fecha_lanzamiento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:background="@color/white"
-            android:hint="@string/editText_fecha_lanzamiento_hint"
-            android:autofillHints="Fecha lanzamiento"
-            android:inputType="date" />
+            <EditText
+                android:id="@+id/album_cover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:autofillHints="Cover"
+                android:hint="@string/ediText_cover_hint"
+                android:inputType="text" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
 
-        <EditText
-            android:id="@+id/album_genero"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:background="@color/white"
-            android:hint="@string/editText_genero_hint"
-            android:autofillHints="Genero"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/album_fecha_lanzamiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="@string/editText_fecha_lanzamiento_hint"
+                android:autofillHints="Fecha lanzamiento"
+                android:inputType="date" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
+
+            <EditText
+                android:id="@+id/album_genero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="@string/editText_genero_hint"
+                android:autofillHints="Genero"
+                android:inputType="text" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
 
 
-        <EditText
-            android:id="@+id/album_disquera"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:background="@color/white"
-            android:hint="@string/editText_disquera_del_album_hint"
-            android:autofillHints="Disquera"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/album_disquera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="@string/editText_disquera_del_album_hint"
+                android:autofillHints="Disquera"
+                android:inputType="text" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
 
-        <EditText
-            android:id="@+id/album_descripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="96dp"
-            android:background="@color/white"
-            android:hint="@string/edit_hintdescripcion_del_album_hint"
-            android:autofillHints="Descripcion"
-            android:inputType="text" />
+            <EditText
+                android:id="@+id/album_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="96dp"
+                android:background="@color/white"
+                android:padding="10dp"
+                android:hint="@string/edit_hintdescripcion_del_album_hint"
+                android:autofillHints="Descripcion"
+                android:inputType="text" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="12dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="12dp"/>
 
-        <Button
-            android:id="@+id/post_album_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/post_album" />
+            <Button
+                android:id="@+id/post_album_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/post_album" />
 
-        <TextView
-            android:id="@+id/get_result_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="respuesta"
-            android:textSize="30sp" />
+            <TextView
+                android:id="@+id/get_result_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="respuesta"
+                android:textSize="30sp" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
