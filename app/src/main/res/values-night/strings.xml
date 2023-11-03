@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="post_album">Crear</string>
-    <string name="editText_nombre_hint">Nombre</string>
-    <string name="editText_genero_hint">Genero</string>
-    <string name="editText_disquera_del_album_hint">Disquera del album</string>
-    <string name="edit_hintdescripcion_del_album_hint">Descripcion del album</string>
-    <string name="submit">Descripcion</string>
+
 </resources>
