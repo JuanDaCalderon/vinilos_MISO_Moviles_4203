@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066597080282",
+    "project_id": "vinilos-f624d",
+    "storage_bucket": "vinilos-f624d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066597080282:android:221661f07226341fd5d9e3",
+        "android_client_info": {
+          "package_name": "com.example.vinilos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVfehrkd9AGnloUNVcnQoI06KXEKBjuuc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
