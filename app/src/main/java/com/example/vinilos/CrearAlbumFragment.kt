@@ -16,7 +16,7 @@ class CrearAlbumFragment : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_crear_album)
+        setContentView(R.layout.fragment_crear_album)
 
         volleyBroker = VolleyBroker(this.applicationContext)
 

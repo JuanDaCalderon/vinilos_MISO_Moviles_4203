@@ -20,4 +20,5 @@
     <string name="Disquera_placeholder">Disquera</string>
     <string name="Descripcion_placeholder">Descripción</string>
     <string name="Buscar">Buscar</string>
+    <string name="submit">Descripcion</string>
 </resources>
