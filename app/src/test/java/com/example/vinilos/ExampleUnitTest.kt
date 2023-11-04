@@ -1,4 +1,4 @@
-package com.example.vinilos
+package com.example.Vinilos
 
 import org.junit.Test
 
