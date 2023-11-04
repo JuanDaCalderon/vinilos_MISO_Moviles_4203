@@ -12,10 +12,11 @@
     <string name="Crear_albumes">Crear Album</string>
 
     <string name="Crear_button_text">Crear</string>
-    <string name="Cancelar_button_text">Cancelar</string>
+    <string name="Cancelar_button_text">Volver</string>
     <string name="Asociar_button_text">Asociar</string>
     <string name="Nombre_placeholder">Nombre</string>
     <string name="Cover_placeholder">Cover</string>
+    <string name="Lanzamiento_placeholder">Fecha de lanzamiento dd/mm/yyyy</string>
     <string name="Genero_placeholder">Género</string>
     <string name="Disquera_placeholder">Disquera</string>
     <string name="Descripcion_placeholder">Descripción</string>
@@ -42,4 +43,8 @@
     <string name="txt_no_albums">No hay album para este id</string>
     <string name="title_collectors">Coleccionistas</string>
     <string name="title_comments">Comentarios del álbum</string>
+
+    <string name="crear_album_button_description">Crear album</string>
+    <string name="album_creado_text">Album Creado!</string>
+    <string name="form_required_field">Campo obligatorio</string>
 </resources>

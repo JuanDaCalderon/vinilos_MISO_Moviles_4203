@@ -1,5 +1,6 @@
 package com.example.vinilos.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.example.vinilos.databinding.AlbumFragmentBinding
 import com.example.vinilos.models.Album
 import com.example.vinilos.ui.adapters.AlbumsAdapter
 import com.example.vinilos.viewmodels.AlbumViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AlbumFragment : Fragment() {
 
@@ -28,8 +30,15 @@ class AlbumFragment : Fragment() {
         _binding = AlbumFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
         viewModelAdapter = AlbumsAdapter()
+
+        val crearAlbumButton : FloatingActionButton = view.findViewById(R.id.crearAlbumFloatingButton)
+        crearAlbumButton.setOnClickListener{
+            val CrearAlbumIntent = Intent(activity, CrearAlbumFragment::class.java)
+            startActivity(CrearAlbumIntent)}
+
         return view
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.albumsRv
