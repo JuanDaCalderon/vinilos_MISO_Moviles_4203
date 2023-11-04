@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.vinilos.ui.MainActivity">
+
+    <item
+        android:id="@+id/coleccionistasFragment"
+        android:icon="@drawable/baseline_disc_full_24"
+        android:title="@string/title_tracks" />
+
+    <item
+        android:id="@+id/albumFragment"
+        android:icon="@drawable/baseline_library_books_24"
+        android:title="@string/title_albums" />
+
+    <item
+        android:id="@+id/artistasFragment"
+        android:icon="@drawable/baseline_mic_external_on_24"
+        android:title="@string/title_artistas" />
+
+    <item
+        android:id="@+id/collectorFragment"
+        android:icon="@drawable/baseline_manage_search_24"
+        android:title="@string/title_coleccionistas" />
+
+</menu>
