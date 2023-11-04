@@ -49,6 +49,7 @@
     <string name="form_required_field">Campo obligatorio</string>
 
     <string-array name="genres">
+        <item>Genero</item>
         <item>Classical</item>
         <item>Salsa</item>
         <item>Rock</item>
@@ -56,6 +57,7 @@
     </string-array>
 
     <string-array name="recordLabels">
+        <item>Disquera</item>
         <item>Sony Music</item>
         <item>EMI</item>
         <item>Discos Fuentes</item>

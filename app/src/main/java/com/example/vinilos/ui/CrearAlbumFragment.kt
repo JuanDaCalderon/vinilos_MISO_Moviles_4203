@@ -54,7 +54,7 @@ class CrearAlbumFragment : AppCompatActivity() {
                 "recordLabel" to recordLabel
             )
 
-            if (validarCampos(nameTxt,coverTxt, fechaLanzamientoTxt, descripcionTxt)) {
+            if (validarCampos(nameTxt,coverTxt, fechaLanzamientoTxt, descripcionTxt, spinnerGenres, spinnerRecordLabel)) {
                 volleyBroker.instance.add(VolleyBroker.postRequest("albums", JSONObject(postParams),
                     Response.Listener<JSONObject> { response ->
                         // Display the first 500 characters of the response string.
@@ -93,7 +93,7 @@ class CrearAlbumFragment : AppCompatActivity() {
         fechaLanzamientoET.setText("$day/$month/$year")
     }
 
-    private fun validarCampos(name:EditText,  cover:EditText, releaseDate:EditText, description:EditText):Boolean {
+    private fun validarCampos(name:EditText,  cover:EditText, releaseDate:EditText, description:EditText, genre:Spinner, recordLabel:Spinner ):Boolean {
         var isValid = true
 
         if (name.text.toString().isBlank()) {
@@ -112,6 +112,16 @@ class CrearAlbumFragment : AppCompatActivity() {
             isValid = false
             description.error = getString(R.string.form_required_field)
         }
+        if (genre.getSelectedItem().toString() == "Genero") {
+            isValid = false
+            Toast.makeText(applicationContext, "Seleccione un genero", Toast.LENGTH_SHORT).show()
+        }
+        if (recordLabel.getSelectedItem().toString() == "Disquera"){
+            isValid = false
+            description.error = getString(R.string.form_required_field)
+            Toast.makeText(applicationContext, "Seleccione una disquera", Toast.LENGTH_SHORT).show()
+        }
+
         return isValid
     }
 }
