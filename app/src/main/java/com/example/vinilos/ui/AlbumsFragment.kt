@@ -1,17 +1,16 @@
-package com.example.vinilos.ui.albums
+package com.example.vinilos.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinilos.adaptadores.AdaptadorAlbum
+import com.example.vinilos.ui.adaptadores.AdaptadorAlbum
 import com.example.vinilos.databinding.FragmentAlbumsBinding
 import com.example.vinilos.modelos.Album
 import com.example.vinilos.viewmodels.AlbumViewModel
@@ -32,11 +31,6 @@ class AlbumsFragment : Fragment() {
         val view: View = binding.root
         viewModelAdapter = AdaptadorAlbum()
 
-        val textView: TextView = binding.textAlbums
-
-        viewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
         return view
     }
 
@@ -48,11 +42,13 @@ class AlbumsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
             it.apply {
                 viewModelAdapter!!.albums = this
             }
         })
+
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })

@@ -1,16 +1,20 @@
-package com.example.vinilos.adaptadores
+package com.example.vinilos.ui.adaptadores
 
 import ImageLoadTask
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 
 import com.example.vinilos.R
 import com.example.vinilos.modelos.Album
+import com.example.vinilos.ui.AlbumsFragmentDirections
 
 
 class AdaptadorAlbum : RecyclerView.Adapter<AdaptadorAlbum.ViewHolder>() {
@@ -34,8 +38,13 @@ class AdaptadorAlbum : RecyclerView.Adapter<AdaptadorAlbum.ViewHolder>() {
         holder.textViewDescripcion.text = albums[position].description
         ImageLoadTask(albums[position].cover, holder.imageView).execute()
 
+
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context, "album ${albums[position].name}", Toast.LENGTH_LONG).show()
+            val action = AlbumsFragmentDirections.actionAlbumsFragmentToAlbumsDetalleFragment(albums[position].id)
+            Log.d("ERROR", holder.itemView.toString())
+            Toast.makeText(holder.itemView.context, "album ${albums[position].id}", Toast.LENGTH_LONG).show()
+
+            Navigation.findNavController(holder.itemView).navigate(R.id.action_AlbumsFragment_to_AlbumsDetalleFragment)
         }
     }
 

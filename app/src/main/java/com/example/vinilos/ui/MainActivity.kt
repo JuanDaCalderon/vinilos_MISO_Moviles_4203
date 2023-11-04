@@ -1,19 +1,24 @@
-package com.example.vinilos
+package com.example.vinilos.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.vinilos.R
 import com.example.vinilos.databinding.ActivityMainBinding
-
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var navView: BottomNavigationView
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,15 +28,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigation() {
-        val navView: BottomNavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        val appBarConfiguration = AppBarConfiguration(
+        navView = binding.navView
+        navController = findNavController(R.id.nav_host_fragment_activity_main)
+        appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_tracks, R.id.navigation_albums, R.id.navigation_artistas, R.id.navigation_coleccionistas
+                R.id.TracksFragment,
+                R.id.AlbumsFragment,
+                R.id.ArtistasFragment,
+                R.id.ColeccionistasFragment,
+                R.id.AlbumsDetalleFragment
             )
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
 }
