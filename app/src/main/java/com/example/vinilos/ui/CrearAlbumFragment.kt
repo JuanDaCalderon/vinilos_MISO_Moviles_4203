@@ -1,18 +1,20 @@
 package com.example.vinilos.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Response
 import com.example.vinilos.R
 import com.example.vinilos.network.VolleyBroker
-import com.google.android.material.textfield.TextInputEditText
 import org.json.JSONObject
-import android.widget.Toast
+
 
 class CrearAlbumFragment : AppCompatActivity() {
     lateinit var volleyBroker: VolleyBroker
@@ -25,24 +27,34 @@ class CrearAlbumFragment : AppCompatActivity() {
 
         val postButton: Button = findViewById(R.id.post_album_button)
         val postResultTextView : TextView = findViewById(R.id.get_result_text)
+        val spinnerGenres:Spinner = findViewById(R.id.spinner_genre)
+        val spinnerRecordLabel:Spinner = findViewById(R.id.spinner_recordLabel)
+
+        val adapterGenres = ArrayAdapter.createFromResource(this, R.array.genres, android.R.layout.simple_spinner_item)
+        val adapterRecordLabel = ArrayAdapter.createFromResource(this, R.array.recordLabels, android.R.layout.simple_spinner_item)
+        adapterGenres.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        adapterRecordLabel.setDropDownViewResource(android.R.layout.simple_spinner_item)
+        spinnerGenres.setAdapter(adapterGenres)
+        spinnerRecordLabel.setAdapter(adapterRecordLabel)
+
         postButton.setOnClickListener {
 
             val nameTxt: EditText = findViewById(R.id.album_nombre)
             val coverTxt: EditText = findViewById(R.id.album_cover)
             val fechaLanzamientoTxt: EditText = findViewById(R.id.album_fecha_lanzamiento)
             val descripcionTxt: EditText = findViewById(R.id.album_descripcion)
-            val generoTxt: EditText = findViewById(R.id.album_genero)
-            val disqueraTxt: EditText = findViewById(R.id.album_disquera)
+            val genre:String = spinnerGenres.selectedItem.toString()
+            val recordLabel:String = spinnerRecordLabel.selectedItem.toString()
             val postParams = mapOf<String, Any>(
                 "name" to nameTxt.text.toString(),
                 "cover" to coverTxt.text.toString(),
                 "releaseDate" to fechaLanzamientoTxt.text.toString(),
                 "description" to descripcionTxt.text.toString(),
-                "genre" to generoTxt.text.toString(),
-                "recordLabel" to disqueraTxt.text.toString()
+                "genre" to genre,
+                "recordLabel" to recordLabel
             )
 
-            if (validarCampos(nameTxt,coverTxt, fechaLanzamientoTxt, descripcionTxt,generoTxt, disqueraTxt )) {
+            if (validarCampos(nameTxt,coverTxt, fechaLanzamientoTxt, descripcionTxt)) {
                 volleyBroker.instance.add(VolleyBroker.postRequest("albums", JSONObject(postParams),
                     Response.Listener<JSONObject> { response ->
                         // Display the first 500 characters of the response string.
@@ -56,8 +68,8 @@ class CrearAlbumFragment : AppCompatActivity() {
                         Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_SHORT).show()
                     }
                 ))
-                val mainActivity = Intent(applicationContext, MainActivity::class.java)
-                startActivity(mainActivity)
+            val mainActivity = Intent(applicationContext, MainActivity::class.java)
+            startActivity(mainActivity)
             }
         }
 
@@ -81,7 +93,7 @@ class CrearAlbumFragment : AppCompatActivity() {
         fechaLanzamientoET.setText("$day/$month/$year")
     }
 
-    private fun validarCampos(name:EditText,  cover:EditText, releaseDate:EditText, description:EditText, genre:EditText, recordLabel:EditText):Boolean {
+    private fun validarCampos(name:EditText,  cover:EditText, releaseDate:EditText, description:EditText):Boolean {
         var isValid = true
 
         if (name.text.toString().isBlank()) {
@@ -100,26 +112,6 @@ class CrearAlbumFragment : AppCompatActivity() {
             isValid = false
             description.error = getString(R.string.form_required_field)
         }
-        if (genre.text.toString().isBlank()) {
-            isValid = false
-            genre.error = getString(R.string.form_required_field)
-        }
-        if (recordLabel.text.toString().isBlank()) {
-            isValid = false
-            recordLabel.error = getString(R.string.form_required_field)
-        }
-
         return isValid
     }
-
-    private fun resetCampos(name:EditText,  cover:EditText, releaseDate:EditText, description:EditText, genre:EditText, recordLabel:EditText) {
-        name.setText("")
-        cover.setText("")
-        releaseDate.setText("")
-        description.setText("")
-        genre.setText("")
-        recordLabel.setText("")
-
-    }
-
 }
