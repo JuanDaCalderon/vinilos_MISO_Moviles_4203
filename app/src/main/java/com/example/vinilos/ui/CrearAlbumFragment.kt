@@ -56,6 +56,8 @@ class CrearAlbumFragment : AppCompatActivity() {
                         Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_SHORT).show()
                     }
                 ))
+                val mainActivity = Intent(applicationContext, MainActivity::class.java)
+                startActivity(mainActivity)
             }
         }
 
@@ -63,10 +65,10 @@ class CrearAlbumFragment : AppCompatActivity() {
         fechaLanzamientoET.setOnClickListener {showDatePickerDialog()}
 
         val cancelButton: Button = findViewById(R.id.cancel_album_button)
-            cancelButton.setOnClickListener {
-                val mainActivity = Intent(applicationContext, MainActivity::class.java)
-                startActivity(mainActivity)
-            }
+        cancelButton.setOnClickListener {
+            val mainActivity = Intent(applicationContext, MainActivity::class.java)
+            startActivity(mainActivity)
+        }
     }
 
     private fun showDatePickerDialog() {
