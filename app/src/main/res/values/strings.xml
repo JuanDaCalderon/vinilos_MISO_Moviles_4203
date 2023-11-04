@@ -47,4 +47,22 @@
     <string name="crear_album_button_description">Crear album</string>
     <string name="album_creado_text">Album Creado!</string>
     <string name="form_required_field">Campo obligatorio</string>
+
+    <string-array name="genres">
+        <item>Genero</item>
+        <item>Classical</item>
+        <item>Salsa</item>
+        <item>Rock</item>
+        <item>Folk</item>
+    </string-array>
+
+    <string-array name="recordLabels">
+        <item>Disquera</item>
+        <item>Sony Music</item>
+        <item>EMI</item>
+        <item>Discos Fuentes</item>
+        <item>Elektra</item>
+        <item>Fania Records</item>
+    </string-array>
+
 </resources>
