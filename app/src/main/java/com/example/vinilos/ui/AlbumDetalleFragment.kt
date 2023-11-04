@@ -5,40 +5,37 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.navArgs
+
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinilos.databinding.FragmentDetalleAlbumBinding
-import com.example.vinilos.modelos.Album
-import com.example.vinilos.ui.adaptadores.AdaptadorDetalleAlbum
+import com.example.vinilos.R
+import com.example.vinilos.databinding.DetalleAlbumFragmentBinding
+import com.example.vinilos.models.Album
+import com.example.vinilos.ui.adapters.AlbumDetalleAdapter
 import com.example.vinilos.viewmodels.AlbumDetalleViewModel
 
-class AlbumsDetalleFragment : Fragment() {
 
-    private var _binding: FragmentDetalleAlbumBinding? = null
+class AlbumDetalleFragment : Fragment() {
+    private var _binding: DetalleAlbumFragmentBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewModel: AlbumDetalleViewModel
-    private var viewModelAdapter: AdaptadorDetalleAlbum? = null
+    private var viewModelAdapter: AlbumDetalleAdapter? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        viewModel = ViewModelProvider(this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application = this.requireActivity().application)).get(AlbumDetalleViewModel::class.java)
-        _binding = FragmentDetalleAlbumBinding.inflate(inflater, container, false)
-
-        val view: View = binding.root
-        viewModelAdapter = AdaptadorDetalleAlbum()
-
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _binding = DetalleAlbumFragmentBinding.inflate(inflater, container, false)
+        val view = binding.root
+        viewModelAdapter = AlbumDetalleAdapter()
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.recyclerViewDetalleAlbum
+        recyclerView = binding.detalleAlbumRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -48,30 +45,24 @@ class AlbumsDetalleFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = "Detalle Album"
-
-
-        val args: AlbumsDetalleFragmentArgs by navArgs()
-        Log.d("ARGS", args.albumId.toString())
-
-        viewModel.albums.observe(viewLifecycleOwner, Observer<Album> {
+        activity.actionBar?.title = getString(R.string.title_detalle_albums)
+        val args: AlbumDetalleFragmentArgs by navArgs()
+        Log.d("Args", args.albumId.toString())
+        viewModel = ViewModelProvider(this, AlbumDetalleViewModel.Factory(activity.application, args.albumId)).get(AlbumDetalleViewModel::class.java)
+        viewModel.album.observe(viewLifecycleOwner, Observer<Album> {
             it.apply {
-                Log.d("ALBUM DETALLE", this.toString())
                 viewModelAdapter!!.album = this
-                if(this==null){
-                    binding.txtNoAlbum.visibility = View.VISIBLE
-                }else{
-                    binding.txtNoAlbum.visibility = View.GONE
+                if(this != null){
+                    binding.txtNoAlbums.visibility = View.GONE
+                } else {
+                    binding.txtNoAlbums.visibility = View.VISIBLE
                 }
             }
         })
-
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
-
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -83,5 +74,4 @@ class AlbumsDetalleFragment : Fragment() {
             viewModel.onNetworkErrorShown()
         }
     }
-
 }

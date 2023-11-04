@@ -1,13 +1,13 @@
-package com.example.vinilos.ui.coleccionistas
+package com.example.vinilos.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ColeccionistasViewModel : ViewModel() {
+class ArtistasViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is coleccionista Fragment"
+        value = "Artistas View Model"
     }
     val text: LiveData<String> = _text
 }
