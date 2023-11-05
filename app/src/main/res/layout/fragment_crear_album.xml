@@ -82,34 +82,27 @@
         android:layout_width="match_parent"
         android:layout_height="12dp" />
 
-    <EditText
-        android:id="@+id/album_genero"
+    <Spinner
+        android:id="@+id/spinner_genre"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="Genero"
+        android:layout_height="48dp"
         android:background="@color/white"
-        android:hint="@string/Genero_placeholder"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColorHint="#546E7A" />
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@+id/title_basic"
+        />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="12dp" />
 
-
-    <EditText
-        android:id="@+id/album_disquera"
+    <Spinner
+        android:id="@+id/spinner_recordLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints="Disquera"
+        android:layout_height="48dp"
         android:background="@color/white"
-        android:hint="@string/Disquera_placeholder"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:padding="10dp"
-        android:textColorHint="#546E7A" />
+        android:spinnerMode="dropdown"
+        app:layout_constraintTop_toBottomOf="@+id/title_basic"
+        />
 
     <Space
         android:layout_width="match_parent"
