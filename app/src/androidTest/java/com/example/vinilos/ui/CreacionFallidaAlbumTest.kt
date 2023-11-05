@@ -3,11 +3,9 @@ package com.example.vinilos.ui
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.*
-import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -25,14 +23,14 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class DetalleAlbumTest {
+class CreacionFallidaAlbumTest {
 
     @Rule
     @JvmField
     var mActivityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun detalleAlbumTest() {
+    fun creacionFallidaAlbumTest() {
         Thread.sleep(1000)
         val textView = onView(
             allOf(
@@ -68,15 +66,6 @@ class DetalleAlbumTest {
         )
         textView2.check(matches(withText("Albums")))
 
-        val frameLayout = onView(
-            allOf(
-                withId(R.id.albumFragment), withContentDescription("Albums"),
-                withParent(withParent(withId(R.id.nav_view))),
-                isDisplayed()
-            )
-        )
-        frameLayout.check(matches(isDisplayed()))
-
         val imageButton = onView(
             allOf(
                 withId(R.id.crearAlbumFloatingButton), withContentDescription("Crear album"),
@@ -86,94 +75,25 @@ class DetalleAlbumTest {
         )
         imageButton.check(matches(isDisplayed()))
 
-        val recyclerView = onView(
+        val floatingActionButton = onView(
             allOf(
-                withId(R.id.albumsRv),
+                withId(R.id.crearAlbumFloatingButton), withContentDescription("Crear album"),
                 childAtPosition(
-                    withClassName(`is`("android.widget.FrameLayout")),
-                    1
-                )
-            )
-        )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
-        Thread.sleep(1000)
-
-        val textView3 = onView(
-            allOf(
-                withText("Detalle Album"),
-                withParent(
-                    allOf(
-                        withId(R.id.my_toolbar),
-                        withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))
-                    )
-                ),
-                isDisplayed()
-            )
-        )
-        textView3.check(matches(withText("Detalle Album")))
-
-        val textView4 = onView(
-            allOf(
-                withId(com.google.android.material.R.id.navigation_bar_item_large_label_view),
-                withText("Albums"),
-                withParent(
-                    allOf(
-                        withId(com.google.android.material.R.id.navigation_bar_item_labels_group),
-                        withParent(
-                            allOf(
-                                withId(R.id.albumFragment),
-                                withContentDescription("Albums")
-                            )
-                        )
-                    )
-                ),
-                isDisplayed()
-            )
-        )
-        textView4.check(matches(withText("Albums")))
-
-        val textView5 = onView(
-            allOf(
-                withId(com.google.android.material.R.id.navigation_bar_item_large_label_view),
-                withText("Albums"),
-                withParent(
-                    allOf(
-                        withId(com.google.android.material.R.id.navigation_bar_item_labels_group),
-                        withParent(
-                            allOf(
-                                withId(R.id.albumFragment),
-                                withContentDescription("Albums")
-                            )
-                        )
-                    )
-                ),
-                isDisplayed()
-            )
-        )
-        textView5.check(matches(withText("Albums")))
-
-        val appCompatImageButton = onView(
-            allOf(
-                withContentDescription("Navigate up"),
-                childAtPosition(
-                    allOf(
-                        withId(R.id.my_toolbar),
-                        childAtPosition(
-                            withClassName(`is`("android.widget.LinearLayout")),
-                            0
-                        )
+                    childAtPosition(
+                        withId(R.id.nav_host_fragment),
+                        0
                     ),
                     2
                 ),
                 isDisplayed()
             )
         )
-        appCompatImageButton.perform(click())
+        floatingActionButton.perform(click())
         Thread.sleep(1000)
 
-        val textView6 = onView(
+        val textView3 = onView(
             allOf(
-                withText("Albums"),
+                withText("Crear album"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -183,27 +103,40 @@ class DetalleAlbumTest {
                 isDisplayed()
             )
         )
-        textView6.check(matches(withText("Albums")))
+        textView3.check(matches(withText("Crear album")))
 
-        val textView7 = onView(
+        val button = onView(
             allOf(
-                withId(com.google.android.material.R.id.navigation_bar_item_large_label_view),
-                withText("Albums"),
-                withParent(
-                    allOf(
-                        withId(com.google.android.material.R.id.navigation_bar_item_labels_group),
-                        withParent(
-                            allOf(
-                                withId(R.id.albumFragment),
-                                withContentDescription("Albums")
-                            )
-                        )
-                    )
+                withId(R.id.cancel_album_button), withText("VOLVER"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                isDisplayed()
+            )
+        )
+        button.check(matches(isDisplayed()))
+
+        val button2 = onView(
+            allOf(
+                withId(R.id.post_album_button), withText("CREAR"),
+                withParent(withParent(IsInstanceOf.instanceOf(android.widget.LinearLayout::class.java))),
+                isDisplayed()
+            )
+        )
+        button2.check(matches(isDisplayed()))
+
+        val materialButton = onView(
+            allOf(
+                withId(R.id.post_album_button), withText("Crear"),
+                childAtPosition(
+                    childAtPosition(
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        15
+                    ),
+                    2
                 ),
                 isDisplayed()
             )
         )
-        textView7.check(matches(withText("Albums")))
+        materialButton.perform(click())
         Thread.sleep(2000)
     }
 
