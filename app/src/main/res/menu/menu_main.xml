@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/collectorFragment"
-        android:icon="@drawable/baseline_manage_search_24"
+        android:icon="@drawable/baseline_collections_bookmark_24"
         android:title="@string/title_coleccionistas" />
 
 </menu>
