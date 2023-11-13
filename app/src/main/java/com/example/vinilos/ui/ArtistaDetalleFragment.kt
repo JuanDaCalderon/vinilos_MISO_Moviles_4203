@@ -1,49 +1,41 @@
 package com.example.vinilos.ui
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
-import com.example.vinilos.databinding.FragmentArtistasBinding
+import com.example.vinilos.databinding.DetalleArtistaFragmentBinding
 import com.example.vinilos.models.Artista
-import com.example.vinilos.ui.adapters.ArtistasAdapter
-import com.example.vinilos.viewmodels.ArtistasViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.vinilos.ui.adapters.ArtistaDetalleAdapter
+import com.example.vinilos.viewmodels.ArtistaDetalleViewModel
 
-class ArtistasFragment : Fragment() {
 
-    private var _binding: FragmentArtistasBinding? = null
+class ArtistaDetalleFragment : Fragment() {
+    private var _binding: DetalleArtistaFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel: ArtistasViewModel
-    private var viewModelAdapter: ArtistasAdapter? = null
+    private lateinit var viewModel: ArtistaDetalleViewModel
+    private var viewModelAdapter: ArtistaDetalleAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentArtistasBinding.inflate(inflater, container, false)
+        _binding = DetalleArtistaFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = ArtistasAdapter()
-
-        /*
-        val crearAlbumButton : FloatingActionButton = view.findViewById(R.id.crearAlbumFloatingButton)
-        crearAlbumButton.setOnClickListener{
-            val CrearAlbumIntent = Intent(activity, CrearAlbumFragment::class.java)
-            startActivity(CrearAlbumIntent)}
-        */
-
+        viewModelAdapter = ArtistaDetalleAdapter()
         return view
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.artistasRv
+        recyclerView = binding.detalleArtistaRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -53,11 +45,18 @@ class ArtistasFragment : Fragment() {
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
-        activity.actionBar?.title = getString(R.string.title_artistas)
-        viewModel = ViewModelProvider(this, ArtistasViewModel.Factory(activity.application)).get(ArtistasViewModel::class.java)
-        viewModel.artistas.observe(viewLifecycleOwner, Observer<List<Artista>> {
+        activity.actionBar?.title = getString(R.string.title_detalle_artista)
+        val args: ArtistaDetalleFragmentArgs by navArgs()
+        Log.d("Args", args.artistaId.toString())
+        viewModel = ViewModelProvider(this, ArtistaDetalleViewModel.Factory(activity.application, args.artistaId)).get(ArtistaDetalleViewModel::class.java)
+        viewModel.artista.observe(viewLifecycleOwner, Observer<Artista> {
             it.apply {
-                viewModelAdapter!!.artistas = this
+                viewModelAdapter!!.artista = this
+                if(this != null){
+                    binding.txtNoArtistas.visibility = View.GONE
+                } else {
+                    binding.txtNoArtistas.visibility = View.VISIBLE
+                }
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->

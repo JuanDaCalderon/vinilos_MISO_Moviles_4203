@@ -19,14 +19,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>}
         <item name="colorControlNormal">@color/white</item>
-    </style>
-
-    <style name="Theme.Vinilos.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
-        <item name="colorControlNormal">@color/white</item>
-    </style>
-
-    <style name="Theme.Vinilos.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="colorControlNormal">@color/white</item>
+        <item name="background">@color/grey_background</item>
+        <item name="backgroundColor">@color/grey_background</item>
+        <item name="android:colorBackground">@color/grey_background</item>
     </style>
 
 </resources>

@@ -12,56 +12,56 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
-import com.example.vinilos.databinding.AlbumItemBinding
-import com.example.vinilos.models.Album
-import com.example.vinilos.ui.AlbumFragmentDirections
+import com.example.vinilos.databinding.ArtistasItemBinding
+import com.example.vinilos.models.Artista
+import com.example.vinilos.ui.ArtistasFragmentDirections
 
-class AlbumsAdapter : RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>(){
+class ArtistasAdapter : RecyclerView.Adapter<ArtistasAdapter.artistaViewHolder>(){
 
-    var albums :List<Album> = emptyList()
+    var artistas :List<Artista> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumViewHolder {
-        val withDataBinding: AlbumItemBinding = DataBindingUtil.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): artistaViewHolder {
+        val withDataBinding: ArtistasItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            AlbumViewHolder.LAYOUT,
+            artistaViewHolder.LAYOUT,
             parent,
             false)
-        return AlbumViewHolder(withDataBinding)
+        return artistaViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: AlbumViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: artistaViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.album = albums[position]
+            it.artista = artistas[position]
         }
-        holder.bind(albums[position])
+        holder.bind(artistas[position])
         holder.viewDataBinding.root.setOnClickListener {
-            val action = AlbumFragmentDirections.actionAlbumFragmentToAlbumDetalleFragment(albums[position].albumId)
-            // Navigate using that action
+            val action = ArtistasFragmentDirections.actionArtistaFragmentToArtistaDetalleFragment(artistas[position].artistaId)
+            //Navigate using that action
             holder.viewDataBinding.root.findNavController().navigate(action)
         }
     }
 
     override fun getItemCount(): Int {
-        return albums.size
+        return artistas.size
     }
 
 
-    class AlbumViewHolder(val viewDataBinding: AlbumItemBinding) :
+    class artistaViewHolder(val viewDataBinding: ArtistasItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.album_item
+            val LAYOUT = R.layout.artistas_item
         }
-        fun bind(album: Album) {
+        fun bind(artista: Artista) {
             Glide.with(itemView)
-                .load(album.cover.toUri().buildUpon().scheme("https").build())
+                .load(artista.image.toUri().buildUpon().scheme("https").build())
                 .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
-                .into(viewDataBinding.albumCover)
+                .into(viewDataBinding.artistaCover)
         }
     }
 }
