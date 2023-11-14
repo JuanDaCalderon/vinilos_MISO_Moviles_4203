@@ -3,19 +3,19 @@ package com.example.vinilos.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.vinilos.models.Artista
-import com.example.vinilos.repositories.ArtistaRepository
+import com.example.vinilos.repositories.DetalleArtistaRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ArtistasViewModel(application: Application) :  AndroidViewModel(application) {
+class ArtistaDetalleViewModel(application: Application, artistaId: Int) :  AndroidViewModel(application) {
 
-    private val artistasRepository = ArtistaRepository(application)
+    private val artistaDetalleRepository = DetalleArtistaRepository(application)
 
-    private val _artistas = MutableLiveData<List<Artista>>()
+    private val _artista = MutableLiveData<Artista>()
 
-    val artistas: LiveData<List<Artista>>
-        get() = _artistas
+    val artista: LiveData<Artista>
+        get() = _artista
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -27,6 +27,8 @@ class ArtistasViewModel(application: Application) :  AndroidViewModel(applicatio
     val isNetworkErrorShown: LiveData<Boolean>
         get() = _isNetworkErrorShown
 
+    val id:Int = artistaId
+
     init {
         refreshDataFromNetwork()
     }
@@ -35,8 +37,8 @@ class ArtistasViewModel(application: Application) :  AndroidViewModel(applicatio
         try {
             viewModelScope.launch (Dispatchers.Default){
                 withContext(Dispatchers.IO){
-                    var data = artistasRepository.refreshData()
-                    _artistas.postValue(data)
+                    val data = artistaDetalleRepository.refreshData(id)
+                    _artista.postValue(data)
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)
@@ -47,16 +49,15 @@ class ArtistasViewModel(application: Application) :  AndroidViewModel(applicatio
         }
     }
 
-
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
     }
 
-    class Factory(val app: Application) : ViewModelProvider.Factory {
+    class Factory(val app: Application, val artistaId: Int) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ArtistasViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(ArtistaDetalleViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return ArtistasViewModel(app) as T
+                return ArtistaDetalleViewModel(app, artistaId) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

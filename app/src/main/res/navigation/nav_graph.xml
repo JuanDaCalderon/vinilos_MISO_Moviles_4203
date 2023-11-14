@@ -19,6 +19,7 @@
             android:id="@+id/action_albumFragment_to_albumDetalleFragment"
             app:destination="@id/detalleAlbumFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/detalleAlbumFragment"
         android:name="com.example.vinilos.ui.AlbumDetalleFragment"
@@ -32,7 +33,23 @@
         android:id="@+id/artistasFragment"
         android:name="com.example.vinilos.ui.ArtistasFragment"
         android:label="@string/title_artistas"
-        tools:layout="@layout/fragment_artistas" />
+        tools:layout="@layout/fragment_artistas" >
+        <action
+            android:id="@+id/action_artistaFragment_to_artistaDetalleFragment"
+            app:destination="@id/detalleArtistaFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detalleArtistaFragment"
+        android:name="com.example.vinilos.ui.ArtistaDetalleFragment"
+        android:label="@string/title_detalle_artista"
+        tools:layout="@layout/detalle_artista_fragment" >
+        <argument
+            android:name="artistaId"
+            app:argType="integer" />
+    </fragment>
+
+
     <fragment
         android:id="@+id/collectorFragment"
         android:name="com.example.vinilos.ui.CollectorFragment"
