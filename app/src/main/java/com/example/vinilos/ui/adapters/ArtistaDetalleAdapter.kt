@@ -10,32 +10,32 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.vinilos.R
-import com.example.vinilos.databinding.DetalleAlbumItemBinding
-import com.example.vinilos.models.Album
+import com.example.vinilos.databinding.DetalleArtistaItemBinding
+import com.example.vinilos.models.Artista
 
-class AlbumDetalleAdapter : RecyclerView.Adapter<AlbumDetalleAdapter.AlbumDetalleViewHolder>(){
+class ArtistaDetalleAdapter : RecyclerView.Adapter<ArtistaDetalleAdapter.ArtistaDetalleViewHolder>(){
 
-    var album :Album? = null
+    var artista :Artista? = null
         @SuppressLint("NotifyDataSetChanged")
         set(value) {
             field = value
             notifyDataSetChanged()
         }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlbumDetalleViewHolder {
-        val withDataBinding: DetalleAlbumItemBinding = DataBindingUtil.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArtistaDetalleViewHolder {
+        val withDataBinding: DetalleArtistaItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
-            AlbumDetalleViewHolder.LAYOUT,
+            ArtistaDetalleViewHolder.LAYOUT,
             parent,
             false)
-        return AlbumDetalleViewHolder(withDataBinding)
+        return ArtistaDetalleViewHolder(withDataBinding)
     }
 
-    override fun onBindViewHolder(holder: AlbumDetalleViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArtistaDetalleViewHolder, position: Int) {
         holder.viewDataBinding.also {
-            it.album = album
+            it.artista = artista
         }
-        album?.let { holder.bind(it) }
+        artista?.let { holder.bind(it) }
     }
 
     override fun getItemCount(): Int {
@@ -43,18 +43,18 @@ class AlbumDetalleAdapter : RecyclerView.Adapter<AlbumDetalleAdapter.AlbumDetall
     }
 
 
-    class AlbumDetalleViewHolder(val viewDataBinding: DetalleAlbumItemBinding) :
+    class ArtistaDetalleViewHolder(val viewDataBinding: DetalleArtistaItemBinding) :
         RecyclerView.ViewHolder(viewDataBinding.root) {
         companion object {
             @LayoutRes
-            val LAYOUT = R.layout.detalle_album_item
+            val LAYOUT = R.layout.detalle_artista_item
         }
 
-        fun bind(album: Album) {
+        fun bind(artista: Artista) {
             Glide.with(itemView)
-                .load(album.cover.toUri().buildUpon().scheme("https").build())
+                .load(artista.image.toUri().buildUpon().scheme("https").build())
                 .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).error(R.drawable.ic_broken_image))
-                .into(viewDataBinding.albumCover)
+                .into(viewDataBinding.artistaImage)
         }
 
     }

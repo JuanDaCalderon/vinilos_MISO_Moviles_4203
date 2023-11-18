@@ -41,6 +41,7 @@ android {
 }
 
 dependencies {
+    //val room_version = "2.5.0"
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
@@ -50,7 +51,9 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation("com.github.bumptech.glide:glide:4.8.0")
-    implementation ("com.android.volley:volley:1.2.1")   //Inclusion libreria volley para consultas REST
+    implementation("com.android.volley:volley:1.2.1")   //Inclusion libreria volley para consultas REST
+
+    // Room components
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

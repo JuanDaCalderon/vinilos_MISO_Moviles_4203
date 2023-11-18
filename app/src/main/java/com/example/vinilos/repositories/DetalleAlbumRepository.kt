@@ -9,13 +9,12 @@ import com.example.vinilos.network.NetworkServiceAdapter
 class DetalleAlbumRepository (val application: Application){
     suspend fun refreshData(albumId: Int): Album {
         var potentialResp = CacheManager.getInstance(application.applicationContext).getAlbums(albumId)
-
         if(potentialResp != null) {
-            Log.d("Cache decision", "return ${potentialResp} element from cache")
+            Log.d("CACHE DECISION", "return $potentialResp element from cache")
             return potentialResp
         }
         else {
-            Log.d("Cache decision", "get from network")
+            Log.d("CACHE DECISION", "get from network")
             var album = NetworkServiceAdapter.getInstance(application).getAlbum(albumId)
             CacheManager.getInstance(application.applicationContext).addAlbums(albumId, album)
             return album
