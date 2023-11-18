@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.DetalleCollectorFragmentBinding
+import com.example.vinilos.models.Collector
+import com.example.vinilos.ui.adapters.CollectorDetalleAdapter
 import com.example.vinilos.viewmodels.CollectorDetalleViewModel
 
 
@@ -45,15 +47,15 @@ class CollectorDetalleFragment : Fragment() {
         }
         activity.actionBar?.title = getString(R.string.title_detalle_Collectors)
         val args: CollectorDetalleFragmentArgs by navArgs()
-        Log.d("Args", args.CollectorId.toString())
-        viewModel = ViewModelProvider(this, CollectorDetalleViewModel.Factory(activity.application, args.CollectorId)).get(CollectorDetalleViewModel::class.java)
-        viewModel.Collector.observe(viewLifecycleOwner, Observer<Collector> {
+        Log.d("Args", args.colIectorId.toString())
+        viewModel = ViewModelProvider(this, CollectorDetalleViewModel.Factory(activity.application, args.colIectorId)).get(CollectorDetalleViewModel::class.java)
+        viewModel.collector.observe(viewLifecycleOwner, Observer<Collector> {
             it.apply {
-                viewModelAdapter!!.Collector = this
+                viewModelAdapter!!.collector = this
                 if(this != null){
-                    binding.txtNoCollectors.visibility = View.GONE
+                    binding.txtNoCollector.visibility = View.GONE
                 } else {
-                    binding.txtNoCollectors.visibility = View.VISIBLE
+                    binding.txtNoCollector.visibility = View.VISIBLE
                 }
             }
         })

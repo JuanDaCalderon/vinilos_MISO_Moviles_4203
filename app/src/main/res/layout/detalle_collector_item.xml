@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="collector" type="com.example.vinilos.models.Collector"/>
+    </data>
+
+    <FrameLayout
+        android:id="@+id/collector_detalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+            android:layout_marginTop="250dp"
+            app:cardBackgroundColor="@color/grey_transparent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/nombre_collector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{collector.name}"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/telephone_collector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{collector.telephone}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/email_collector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{collector.email}"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

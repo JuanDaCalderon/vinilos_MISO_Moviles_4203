@@ -4,20 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.ArtistaDetalleFragment">
+    tools:context=".ui.CollectorDetalleFragment">
 
     <TextView
-        android:id="@+id/txt_no_artistas"
+        android:id="@+id/txt_no_Collector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_no_artistas"
+        android:text="@string/txt_no_collectors"
         android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/detalleArtistaRv"
+        android:id="@+id/detalleCollectorRv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/detalle_artista_item">
+        tools:listitem="@layout/detalle_collector_item">
 
     </androidx.recyclerview.widget.RecyclerView>
 

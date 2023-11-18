@@ -7,6 +7,7 @@
     <string name="title_detalle_artista">Detalle Artista</string>
     <string name="title_artistas">Artistas</string>
     <string name="title_coleccionistas">Coleccionistas</string>
+    <string name="title_detalle_Collectors">Detalle Coleccionista</string>
 
     <string name="get_albums">Traer albumes</string>
     <string name="Asociar_tracks">Asociar tracks</string>
@@ -22,6 +23,7 @@
 
     <string name="txt_no_albums">No hay album para este id</string>
     <string name="txt_no_artistas">No hay artistas para este id</string>
+    <string name="txt_no_collectors">No hay coleccionistas para este id</string>
     <string name="title_collectors">Coleccionistas</string>
 
     <string name="crear_album_button_description">Crear album</string>

@@ -30,6 +30,14 @@
             app:argType="integer" />
     </fragment>
     <fragment
+        android:id="@+id/detalleCollectorFragment"
+        android:name="com.example.vinilos.ui.CollectorDetalleFragment"
+        android:label="@string/title_detalle_Collectors">
+        <argument
+            android:name="colIectorId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
         android:id="@+id/artistasFragment"
         android:name="com.example.vinilos.ui.ArtistasFragment"
         android:label="@string/title_artistas"
@@ -54,5 +62,9 @@
         android:id="@+id/collectorFragment"
         android:name="com.example.vinilos.ui.CollectorFragment"
         android:label="@string/title_coleccionistas"
-        tools:layout="@layout/collector_fragment" />
+        tools:layout="@layout/collector_fragment" >
+        <action
+            android:id="@+id/action_collectorFragment_to_detalleCollectorFragment"
+            app:destination="@id/detalleCollectorFragment" />
+    </fragment>
 </navigation>
