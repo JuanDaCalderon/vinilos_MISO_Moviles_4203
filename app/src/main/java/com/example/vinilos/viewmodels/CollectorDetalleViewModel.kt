@@ -3,6 +3,7 @@ package com.example.vinilos.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.vinilos.models.Artista
+import com.example.vinilos.models.Collector
 import com.example.vinilos.repositories.DetalleCollectorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,8 +15,13 @@ class CollectorDetalleViewModel(application: Application, collectorId: Int) :  A
 
     private val _artistas = MutableLiveData<List<Artista>>()
 
+    private val _collectors = MutableLiveData<Collector>()
+
     val artistas: LiveData<List<Artista>>
         get() = _artistas
+
+    val collectors: LiveData<Collector>
+        get() = _collectors
 
     private var _eventNetworkError = MutableLiveData<Boolean>(false)
 
@@ -39,6 +45,10 @@ class CollectorDetalleViewModel(application: Application, collectorId: Int) :  A
                 withContext(Dispatchers.IO){
                     var data = artistasRepository.refreshData(id)
                     _artistas.postValue(data)
+
+                    var data2 = artistasRepository.bringCollector(id)
+                    _collectors.postValue(data2)
+
                 }
                 _eventNetworkError.postValue(false)
                 _isNetworkErrorShown.postValue(false)

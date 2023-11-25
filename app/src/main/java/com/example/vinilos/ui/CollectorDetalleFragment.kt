@@ -5,7 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +21,8 @@ import com.example.vinilos.databinding.CollectorFragmentBinding
 import com.example.vinilos.databinding.DetalleCollectorFragmentBinding
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Artista
+import com.example.vinilos.models.Collector
+import com.example.vinilos.network.NetworkServiceAdapter
 import com.example.vinilos.ui.adapters.AlbumsAdapter
 import com.example.vinilos.ui.adapters.ArtistasAdapter
 import com.example.vinilos.ui.adapters.CollectorDetalleAdapter
@@ -50,13 +55,26 @@ class CollectorDetalleFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+
         val activity = requireNotNull(this.activity) {
             "You can only access the viewModel after onActivityCreated()"
         }
+
+
+
+        val collectorNameET = activity.findViewById<TextView>(R.id.collectorName)
+        val collectorTelephoneET = activity.findViewById<TextView>(R.id.collectorTelephone)
+        val collectorMailET = activity.findViewById<TextView>(R.id.collectorMail)
+
         activity.actionBar?.title = getString(R.string.title_detalle_coleccionistas)
         val args: CollectorDetalleFragmentArgs by navArgs()
+
+
+
         viewModel = ViewModelProvider(this, CollectorDetalleViewModel.Factory(activity.application, args.collectorId)).get(CollectorDetalleViewModel::class.java)
-        viewModel.artistas.observe(viewLifecycleOwner, Observer<List<Artista>> {
+
+       viewModel.artistas.observe(viewLifecycleOwner, Observer<List<Artista>> {
             it.apply {
                 viewModelAdapter!!.artistas = this
             }
@@ -64,6 +82,16 @@ class CollectorDetalleFragment : Fragment() {
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->
             if (isNetworkError) onNetworkError()
         })
+
+        viewModel.collectors.observe(viewLifecycleOwner, Observer<Collector>{
+            it.apply {
+                collectorNameET.setText(viewModel.collectors.value?.name)
+                collectorTelephoneET.setText(viewModel.collectors.value?.telephone)
+                collectorMailET.setText(viewModel.collectors.value?.email)
+            }
+        })
+
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

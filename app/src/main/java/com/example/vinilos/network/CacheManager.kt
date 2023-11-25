@@ -3,6 +3,7 @@ package com.example.vinilos.network
 import android.content.Context
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Artista
+import com.example.vinilos.models.Collector
 
 class CacheManager(context: Context) {
     companion object{
@@ -17,6 +18,7 @@ class CacheManager(context: Context) {
 
     private var albums: HashMap<Int, Album> = hashMapOf<Int, Album>()
     private var artistas: HashMap<Int, Artista> = hashMapOf<Int, Artista>()
+    private var collectors: HashMap<Int, Collector> = hashMapOf<Int, Collector>()
     fun addAlbums(albumId: Int, albumParam: Album){
         if (!albums.containsKey(albumId)){
             albums[albumId] = albumParam
@@ -34,4 +36,14 @@ class CacheManager(context: Context) {
     fun getArtistas(artistaId: Int) : Artista? {
         return if (artistas.containsKey(artistaId)) artistas[artistaId]!! else null
     }
+
+    fun addCollectors(collectorId: Int, collectorParam: Collector){
+        if (!collectors.containsKey(collectorId)){
+            collectors[collectorId] = collectorParam
+        }
+    }
+    fun getCollectors(collectorId: Int) : Collector? {
+        return if (collectors.containsKey(collectorId)) collectors[collectorId]!! else null
+    }
+
 }
