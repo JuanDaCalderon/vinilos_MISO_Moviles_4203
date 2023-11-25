@@ -28,4 +28,16 @@
         android:backgroundTint="@color/purple_200"
         android:contentDescription="@string/crear_album_button_description" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/asociar_track_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src ="@drawable/baseline_audiotrack_24"
+        android:layout_gravity="bottom|start"
+        android:tint="@color/white"
+        android:background="@color/white"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/purple_200"
+        android:contentDescription="@string/Asociar_tracks" />
+
 </FrameLayout>
