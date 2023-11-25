@@ -24,10 +24,10 @@
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/albumsByCollectorRv"
+            android:id="@+id/artistasByCollectorRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/album_item"/>
+            tools:listitem="@layout/artistas_item"/>
 
     </LinearLayout>
 
