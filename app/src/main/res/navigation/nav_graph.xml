@@ -63,5 +63,9 @@
         android:id="@+id/collectorDetalleFragment"
         android:name="com.example.vinilos.ui.CollectorDetalleFragment"
         android:label="detalle_collector_fragment"
-        tools:layout="@layout/detalle_collector_fragment" />
+        tools:layout="@layout/detalle_collector_fragment">
+    <argument
+        android:name="collectorId"
+        app:argType="integer" />
+    </fragment>/>
 </navigation>

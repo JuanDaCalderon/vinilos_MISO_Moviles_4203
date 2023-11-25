@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
@@ -53,7 +54,8 @@ class CollectorDetalleFragment : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
         activity.actionBar?.title = getString(R.string.title_detalle_coleccionistas)
-        viewModel = ViewModelProvider(this, CollectorDetalleViewModel.Factory(activity.application,100)).get(CollectorDetalleViewModel::class.java)
+        val args: CollectorDetalleFragmentArgs by navArgs()
+        viewModel = ViewModelProvider(this, CollectorDetalleViewModel.Factory(activity.application, args.collectorId)).get(CollectorDetalleViewModel::class.java)
         viewModel.artistas.observe(viewLifecycleOwner, Observer<List<Artista>> {
             it.apply {
                 viewModelAdapter!!.artistas = this
