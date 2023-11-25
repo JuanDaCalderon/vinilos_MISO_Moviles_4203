@@ -54,5 +54,14 @@
         android:id="@+id/collectorFragment"
         android:name="com.example.vinilos.ui.CollectorFragment"
         android:label="@string/title_coleccionistas"
-        tools:layout="@layout/collector_fragment" />
+        tools:layout="@layout/collector_fragment" >
+        <action
+            android:id="@+id/action_collectorFragment_to_collectorDetalleFragment"
+            app:destination="@id/collectorDetalleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/collectorDetalleFragment"
+        android:name="com.example.vinilos.ui.CollectorDetalleFragment"
+        android:label="detalle_collector_fragment"
+        tools:layout="@layout/detalle_collector_fragment" />
 </navigation>
