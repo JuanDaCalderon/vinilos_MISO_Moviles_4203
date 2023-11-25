@@ -28,6 +28,10 @@
     <string name="crear_album_button_description">Crear album</string>
     <string name="album_creado_text">Album Creado!</string>
     <string name="form_required_field">Campo obligatorio</string>
+    <string name="datos_de_contacto">Datos de contacto</string>
+    <string name="artistas_favoritos">Artistas favoritos</string>
+    <string name="numero_de_telefono">Numero de telefono: %1$s</string>
+    <string name="correo_electronico">Correo electronico: %1$s</string>
 
     <string-array name="genres">
         <item>Genero</item>

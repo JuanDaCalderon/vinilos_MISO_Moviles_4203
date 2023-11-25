@@ -62,10 +62,10 @@
     <fragment
         android:id="@+id/collectorDetalleFragment"
         android:name="com.example.vinilos.ui.CollectorDetalleFragment"
-        android:label="detalle_collector_fragment"
+        android:label="@string/title_detalle_coleccionistas"
         tools:layout="@layout/detalle_collector_fragment">
     <argument
         android:name="collectorId"
         app:argType="integer" />
-    </fragment>/>
+    </fragment>
 </navigation>

@@ -62,8 +62,10 @@ class CollectorDetalleFragment : Fragment() {
         viewModel.collectors.observe(viewLifecycleOwner) {
             it.apply {
                 collectorNameET.text = viewModel.collectors.value?.name
-                collectorTelephoneET.text = viewModel.collectors.value?.telephone
-                collectorMailET.text = viewModel.collectors.value?.email
+                collectorTelephoneET.text =
+                    getString(R.string.numero_de_telefono, viewModel.collectors.value?.telephone)
+                collectorMailET.text =
+                    getString(R.string.correo_electronico, viewModel.collectors.value?.email)
             }
         }
     }
