@@ -50,7 +50,7 @@
         android:text="@string/artistas_favoritos"
         android:textStyle="bold"
         android:padding="10sp"
-        android:textSize="24sp"/>
+        android:textSize="20sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artistasByCollectorRv"
