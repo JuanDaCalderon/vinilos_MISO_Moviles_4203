@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/albumFragment"
         android:name="com.example.vinilos.ui.AlbumFragment"
-        android:label="@string/title_albums"
+        android:label="@string/listado_de_albumes"
         tools:layout="@layout/album_fragment" >
         <action
             android:id="@+id/action_albumFragment_to_albumDetalleFragment"
@@ -32,7 +32,7 @@
     <fragment
         android:id="@+id/artistasFragment"
         android:name="com.example.vinilos.ui.ArtistasFragment"
-        android:label="@string/title_artistas"
+        android:label="@string/listado_de_artistas"
         tools:layout="@layout/fragment_artistas" >
         <action
             android:id="@+id/action_artistaFragment_to_artistaDetalleFragment"
@@ -53,7 +53,7 @@
     <fragment
         android:id="@+id/collectorFragment"
         android:name="com.example.vinilos.ui.CollectorFragment"
-        android:label="@string/title_coleccionistas"
+        android:label="@string/listado_de_coleccionistas"
         tools:layout="@layout/collector_fragment" >
         <action
             android:id="@+id/action_collectorFragment_to_collectorDetalleFragment"
