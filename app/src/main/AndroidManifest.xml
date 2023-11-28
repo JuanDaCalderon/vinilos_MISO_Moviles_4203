@@ -21,6 +21,9 @@
             android:name=".ui.CrearAlbumFragment"/>
 
         <activity
+            android:name=".ui.AsociarTracksFragment"/>
+
+        <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Vinilos.NoActionBar">
