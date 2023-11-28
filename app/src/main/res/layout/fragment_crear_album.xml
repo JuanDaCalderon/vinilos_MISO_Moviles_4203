@@ -8,7 +8,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_gravity="end"
-
     tools:context=".ui.CrearAlbumFragment">
 
 
@@ -20,8 +19,7 @@
         android:background="?attr/colorPrimary"
         app:subtitleTextColor="@color/white"
         app:theme="@style/ThemeOverlay.AppCompat"
-        app:titleTextColor="@color/white"
-        />
+        app:titleTextColor="@color/white"/>
 
     <LinearLayout
         android:layout_width="match_parent"
