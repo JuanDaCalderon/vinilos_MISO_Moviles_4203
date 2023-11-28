@@ -11,5 +11,7 @@
     <color name="white">#FAFAFA</color>
     <color name="grey_transparent">#A61A1A1A</color>
     <color name="grey_background">#E7E7E7</color>
+    <color name="dark_grey_background">#606060</color>
+    <color name="grey_unselectet_menu">#b1b1b1</color>
     <color name="stroke_color">#552D98</color>
 </resources>

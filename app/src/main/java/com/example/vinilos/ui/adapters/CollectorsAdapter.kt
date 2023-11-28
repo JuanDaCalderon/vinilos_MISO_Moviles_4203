@@ -1,14 +1,17 @@
 package com.example.vinilos.ui.adapters
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vinilos.R
 import com.example.vinilos.databinding.CollectorItemBinding
 import com.example.vinilos.models.Collector
+import com.example.vinilos.ui.CollectorFragmentDirections
 
 class CollectorsAdapter : RecyclerView.Adapter<CollectorsAdapter.CollectorViewHolder>(){
 
@@ -31,6 +34,12 @@ class CollectorsAdapter : RecyclerView.Adapter<CollectorsAdapter.CollectorViewHo
     override fun onBindViewHolder(holder: CollectorViewHolder, position: Int) {
         holder.viewDataBinding.also {
             it.collector = collectors[position]
+        }
+        holder.viewDataBinding.root.setOnClickListener {
+            //Log.d("args2", albums[position].albumId.toString()+" "+collector)
+            val action = CollectorFragmentDirections.actionCollectorFragmentToCollectorDetalleFragment(collectors[position].collectorId)
+            // Navigate using that action
+            holder.viewDataBinding.root.findNavController().navigate(action)
         }
     }
 

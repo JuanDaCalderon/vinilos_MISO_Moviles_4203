@@ -111,6 +111,39 @@ class NetworkServiceAdapter constructor(context: Context) {
         return suspendCoroutine
     }
 
+    suspend fun getArtistasByCollector(collectorId: Int): List<Artista> {
+        val suspendCoroutine = suspendCoroutine<List<Artista>> { cont ->
+            requestQueue.add(
+                getRequest("collectors/$collectorId/performers",
+                    { response ->
+                        val resp = JSONArray(response)
+                        val list = mutableListOf<Artista>()
+                        var item:JSONObject?
+                        for (i in 0 until resp.length()) {
+                            item = resp.getJSONObject(i)
+                            list.add(
+                                i,
+                                Artista(
+                                    item.getInt("id"),
+                                    item.getString("name"),
+                                    item.getString("image"),
+                                    item.getString("description"),
+                                    ""
+                                    //item.getString("birthDate"),
+                                )
+                            )
+                        }
+                        cont.resume(list)
+                    },
+                    {
+                        cont.resumeWithException(it)
+                    })
+            )
+        }
+        return suspendCoroutine
+    }
+
+
     suspend fun getCollectors() = suspendCoroutine<List<Collector>>{ cont->
         requestQueue.add(getRequest("collectors",
             { response ->
@@ -172,6 +205,24 @@ class NetworkServiceAdapter constructor(context: Context) {
                     item.getString("birthDate"),
                 ))
                 cont.resume(artista)
+            },
+            {
+                cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun getCollector(collectorId:Int) = suspendCoroutine<Collector>{ cont->
+        requestQueue.add(getRequest("collectors/$collectorId",
+            { response ->
+                val item = JSONObject(response)
+                Log.d("Response Artista", item.toString())
+                val collector:Collector = (Collector(
+                    item.getInt("id"),
+                    item.getString("name"),
+                    item.getString("telephone"),
+                    item.getString("email")
+                ))
+                cont.resume(collector)
             },
             {
                 cont.resumeWithException(it)

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable name="collector" type="com.example.vinilos.models.Collector"/>
     </data>
@@ -10,72 +12,62 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        app:cardBackgroundColor="@color/white">
+        app:cardBackgroundColor="@color/grey_background">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="false"
             android:layout_centerHorizontal="false"
             android:layout_centerVertical="false"
-            android:layout_gravity="start"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/white"
-            android:backgroundTint="@color/white"
-            android:gravity="start"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <RelativeLayout
-                    android:id="@+id/relativeContainer"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="start"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
+
                     <LinearLayout
-                        android:id="@+id/collector_info"
-                        android:layout_width="wrap_content"
+                        android:layout_width="386dp"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:gravity="start"
+                        android:gravity="center_vertical"
                         android:orientation="vertical"
-                        android:padding="10dp">
+                        android:padding="5dp">
 
                         <TextView
                             android:id="@+id/collector_name"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@{collector.name}"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textSize="36dp"/>
 
                         <TextView
                             android:id="@+id/collector_telephone"
-                            android:layout_width="wrap_content"
+                            android:layout_width="192dp"
                             android:layout_height="wrap_content"
-                            android:text="@{collector.telephone}" />
+                            android:text="@{collector.telephone}"
+                            android:textSize="24dp"/>
 
                         <TextView
                             android:id="@+id/collector_email"
-                            android:layout_width="wrap_content"
+                            android:layout_width="192dp"
                             android:layout_height="wrap_content"
-                            android:text="@{collector.email}" />
+                            android:text="@{collector.email}"
+                            android:textSize="24dp"/>
 
                     </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="64dp"
-                        android:layout_height="48dp"
-                        android:layout_alignEnd="@id/collector_info"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:contentDescription="@string/title_artistas"
-                        app:srcCompat="@drawable/baseline_collections_bookmark_24"
-                        app:tint="@color/purple_200"/>
-                </RelativeLayout>
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

@@ -7,6 +7,7 @@
     <string name="title_detalle_artista">Detalle Artista</string>
     <string name="title_artistas">Artistas</string>
     <string name="title_coleccionistas">Coleccionistas</string>
+    <string name="title_detalle_coleccionistas">Detalle Coleccionista</string>
 
     <string name="get_albums">Traer albumes</string>
     <string name="Asociar_tracks">Asociar tracks</string>
@@ -27,6 +28,17 @@
     <string name="crear_album_button_description">Crear album</string>
     <string name="album_creado_text">Album Creado!</string>
     <string name="form_required_field">Campo obligatorio</string>
+    <string name="datos_de_contacto">Datos de contacto</string>
+    <string name="artistas_favoritos">Artistas favoritos</string>
+    <string name="numero_de_telefono">Numero de telefono: %1$s</string>
+    <string name="correo_electronico">Correo electronico: %1$s</string>
+    <string name="listado_de_coleccionistas">Listado de coleccionistas</string>
+    <string name="respuesta_crear_album">respuesta</string>
+    <string name="listado_de_artistas">Listado de artistas</string>
+    <string name="listado_de_albumes">Listado de albumes</string>
+    <string name="id_del_album_a_asociar">ID del album a asociar</string>
+    <string name="respuesta">respuesta</string>
+    <string name="duraci_n_del_track">Duración del track</string>
 
     <string-array name="genres">
         <item>Genero</item>
