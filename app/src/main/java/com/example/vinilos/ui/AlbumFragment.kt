@@ -33,8 +33,15 @@ class AlbumFragment : Fragment() {
 
         val crearAlbumButton : FloatingActionButton = view.findViewById(R.id.crearAlbumFloatingButton)
         crearAlbumButton.setOnClickListener{
-            val CrearAlbumIntent = Intent(activity, CrearAlbumFragment::class.java)
-            startActivity(CrearAlbumIntent)}
+            val crearAlbumIntent = Intent(activity, CrearAlbumFragment::class.java)
+            startActivity(crearAlbumIntent)
+        }
+
+        val asociarTrackButton : FloatingActionButton = view.findViewById(R.id.asociar_track_button)
+        asociarTrackButton.setOnClickListener{
+            val asociarTrackIntent = Intent(activity, AsociarTracksFragment::class.java)
+            startActivity(asociarTrackIntent)
+        }
 
         return view
     }
