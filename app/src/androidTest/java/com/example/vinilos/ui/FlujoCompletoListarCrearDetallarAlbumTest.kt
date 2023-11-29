@@ -105,7 +105,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
 
         val textView3 = onView(
             allOf(
-                withText("Coleccionistas"),
+                withText("Listado de coleccionistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -115,7 +115,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 isDisplayed()
             )
         )
-        textView3.check(matches(withText("Coleccionistas")))
+        textView3.check(matches(withText("Listado de coleccionistas")))
 
         val textView4 = onView(
             allOf(
@@ -155,7 +155,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
 
         val textView5 = onView(
             allOf(
-                withText("Artistas"),
+                withText("Listado de artistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -165,7 +165,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 isDisplayed()
             )
         )
-        textView5.check(matches(withText("Artistas")))
+        textView5.check(matches(withText("Listado de artistas")))
 
         val textView6 = onView(
             allOf(
@@ -205,7 +205,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
 
         val textView7 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -215,7 +215,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 isDisplayed()
             )
         )
-        textView7.check(matches(withText("Albums")))
+        textView7.check(matches(withText("Listado de albumes")))
 
         val textView8 = onView(
             allOf(
@@ -378,10 +378,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.album_nombre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -394,10 +394,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.album_cover),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    4
+                    3
                 ),
                 isDisplayed()
             )
@@ -410,10 +410,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.album_fecha_lanzamiento),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    6
+                    5
                 ),
                 isDisplayed()
             )
@@ -441,10 +441,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.spinner_genre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    8
+                    7
                 ),
                 isDisplayed()
             )
@@ -465,10 +465,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.spinner_recordLabel),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    10
+                    9
                 ),
                 isDisplayed()
             )
@@ -489,10 +489,10 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 withId(R.id.album_descripcion),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    12
+                    11
                 ),
                 isDisplayed()
             )
@@ -506,7 +506,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     2
                 ),
@@ -518,7 +518,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
 
         val textView12 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -528,7 +528,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 isDisplayed()
             )
         )
-        textView12.check(matches(withText("Albums")))
+        textView12.check(matches(withText("Listado de albumes")))
             Thread.sleep(1000)
 
         val textView13 = onView(
@@ -614,7 +614,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     0
                 ),
@@ -626,7 +626,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
 
         val textView15 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -636,7 +636,7 @@ class FlujoCompletoListarCrearDetallarAlbumTest {
                 isDisplayed()
             )
         )
-        textView15.check(matches(withText("Albums")))
+        textView15.check(matches(withText("Listado de albumes")))
             Thread.sleep(1000)
 
         val textView16 = onView(

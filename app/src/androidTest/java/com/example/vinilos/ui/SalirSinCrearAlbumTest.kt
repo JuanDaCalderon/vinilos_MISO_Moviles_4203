@@ -34,7 +34,7 @@ class SalirSinCrearAlbumTest {
         Thread.sleep(1000)
         val textView = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -44,7 +44,7 @@ class SalirSinCrearAlbumTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Albums")))
+        textView.check(matches(withText("Listado de albumes")))
 
         val textView2 = onView(
             allOf(
@@ -129,7 +129,7 @@ class SalirSinCrearAlbumTest {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     0
                 ),
@@ -141,7 +141,7 @@ class SalirSinCrearAlbumTest {
 
         val textView4 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -151,7 +151,7 @@ class SalirSinCrearAlbumTest {
                 isDisplayed()
             )
         )
-        textView4.check(matches(withText("Albums")))
+        textView4.check(matches(withText("Listado de albumes")))
 
         val textView5 = onView(
             allOf(

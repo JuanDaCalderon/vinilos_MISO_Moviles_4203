@@ -50,7 +50,7 @@ class DetalleArtistaTest {
 
         val textView = onView(
             allOf(
-                withText("Artistas"),
+                withText("Listado de artistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -60,7 +60,7 @@ class DetalleArtistaTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Artistas")))
+        textView.check(matches(withText("Listado de artistas")))
 
         val textView2 = onView(
             allOf(
@@ -172,7 +172,7 @@ class DetalleArtistaTest {
 
         val textView5 = onView(
             allOf(
-                withText("Artistas"),
+                withText("Listado de artistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -182,7 +182,7 @@ class DetalleArtistaTest {
                 isDisplayed()
             )
         )
-        textView5.check(matches(withText("Artistas")))
+        textView5.check(matches(withText("Listado de artistas")))
 
         val textView6 = onView(
             allOf(

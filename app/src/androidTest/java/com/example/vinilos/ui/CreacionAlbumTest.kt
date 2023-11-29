@@ -37,7 +37,7 @@ class CreacionAlbumTest {
         Thread.sleep(1000)
         val textView = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -47,7 +47,7 @@ class CreacionAlbumTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Albums")))
+        textView.check(matches(withText("Listado de albumes")))
 
         val textView2 = onView(
             allOf(
@@ -140,10 +140,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_nombre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -156,10 +156,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_nombre), withText("Test prueba 1"),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -172,10 +172,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_nombre), withText("Test prueba 1"),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -188,10 +188,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_nombre), withText("Album test prueba 1"),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -204,10 +204,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_cover),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    4
+                    3
                 ),
                 isDisplayed()
             )
@@ -220,10 +220,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_fecha_lanzamiento),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    6
+                    5
                 ),
                 isDisplayed()
             )
@@ -251,10 +251,10 @@ class CreacionAlbumTest {
                 withId(R.id.spinner_genre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    8
+                    7
                 ),
                 isDisplayed()
             )
@@ -274,10 +274,10 @@ class CreacionAlbumTest {
                 withId(R.id.spinner_recordLabel),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    10
+                    9
                 ),
                 isDisplayed()
             )
@@ -297,10 +297,10 @@ class CreacionAlbumTest {
                 withId(R.id.album_descripcion),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    12
+                    11
                 ),
                 isDisplayed()
             )
@@ -316,7 +316,7 @@ class CreacionAlbumTest {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     2
                 ),
@@ -328,7 +328,7 @@ class CreacionAlbumTest {
 
         val textView4 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -338,7 +338,7 @@ class CreacionAlbumTest {
                 isDisplayed()
             )
         )
-        textView4.check(matches(withText("Albums")))
+        textView4.check(matches(withText("Listado de albumes")))
 
         val textView5 = onView(
             allOf(
