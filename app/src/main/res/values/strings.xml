@@ -9,9 +9,11 @@
     <string name="title_coleccionistas">Coleccionistas</string>
     <string name="title_detalle_coleccionistas">Detalle Coleccionista</string>
 
+    <string name="Asociar_tracks">Asociar tracks</string>
+
+
     <string name="Crear_button_text">Crear</string>
     <string name="Cancelar_button_text">Volver</string>
-    <string name="Asociar_button_text">Asociar</string>
     <string name="Nombre_placeholder">Nombre</string>
     <string name="Cover_placeholder">Cover</string>
     <string name="Lanzamiento_placeholder">Fecha de lanzamiento dd/mm/yyyy</string>
