@@ -33,6 +33,7 @@ class DetalleArtistaTest {
 
     @Test
     fun detalleArtistaTest() {
+        Thread.sleep(1000)
         val bottomNavigationItemView = onView(
             allOf(
                 withId(R.id.artistasFragment), withContentDescription("Artistas"),
