@@ -114,7 +114,7 @@ class FlujoCompletoSprint2Test {
 
         val textView3 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -124,7 +124,7 @@ class FlujoCompletoSprint2Test {
                 isDisplayed()
             )
         )
-        textView3.check(matches(withText("Albums")))
+        textView3.check(matches(withText("Listado de albumes")))
 
         val textView4 = onView(
             allOf(
@@ -284,10 +284,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.album_nombre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    2
+                    1
                 ),
                 isDisplayed()
             )
@@ -300,10 +300,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.album_cover),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    4
+                    3
                 ),
                 isDisplayed()
             )
@@ -316,10 +316,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.album_fecha_lanzamiento),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    6
+                    5
                 ),
                 isDisplayed()
             )
@@ -347,10 +347,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.spinner_genre),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    8
+                    7
                 ),
                 isDisplayed()
             )
@@ -371,10 +371,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.spinner_recordLabel),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    10
+                    9
                 ),
                 isDisplayed()
             )
@@ -395,10 +395,10 @@ class FlujoCompletoSprint2Test {
                 withId(R.id.album_descripcion),
                 childAtPosition(
                     childAtPosition(
-                        withId(android.R.id.content),
-                        0
+                        withClassName(`is`("android.widget.LinearLayout")),
+                        1
                     ),
-                    12
+                    11
                 ),
                 isDisplayed()
             )
@@ -412,7 +412,7 @@ class FlujoCompletoSprint2Test {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     2
                 ),
@@ -444,7 +444,7 @@ class FlujoCompletoSprint2Test {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     0
                 ),
@@ -471,7 +471,7 @@ class FlujoCompletoSprint2Test {
 
         val textView8 = onView(
             allOf(
-                withText("Artistas"),
+                withText("Listado de artistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -481,7 +481,7 @@ class FlujoCompletoSprint2Test {
                 isDisplayed()
             )
         )
-        textView8.check(matches(withText("Artistas")))
+        textView8.check(matches(withText("Listado de artistas")))
 
         val textView9 = onView(
             allOf(
@@ -586,7 +586,7 @@ class FlujoCompletoSprint2Test {
 
         val textView12 = onView(
             allOf(
-                withText("Coleccionistas"),
+                withText("Listado de coleccionistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -596,7 +596,7 @@ class FlujoCompletoSprint2Test {
                 isDisplayed()
             )
         )
-        textView12.check(matches(withText("Coleccionistas")))
+        textView12.check(matches(withText("Listado de coleccionistas")))
 
         val textView13 = onView(
             allOf(
@@ -636,7 +636,7 @@ class FlujoCompletoSprint2Test {
 
         val textView14 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -646,7 +646,7 @@ class FlujoCompletoSprint2Test {
                 isDisplayed()
             )
         )
-        textView14.check(matches(withText("Albums")))
+        textView14.check(matches(withText("Listado de albumes")))
 
         val textView15 = onView(
             allOf(

@@ -213,7 +213,7 @@ class ListarAlbumesTest {
 
         val textView5 = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -223,7 +223,7 @@ class ListarAlbumesTest {
                 isDisplayed()
             )
         )
-        textView5.check(matches(withText("Albums")))
+        textView5.check(matches(withText("Listado de albumes")))
 
         val imageButton = onView(
             allOf(
