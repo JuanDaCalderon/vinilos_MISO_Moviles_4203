@@ -49,7 +49,7 @@ class ListarColeccionistasTest {
 
         val textView = onView(
             allOf(
-                withText("Coleccionistas"),
+                withText("Listado de coleccionistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -59,7 +59,7 @@ class ListarColeccionistasTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Coleccionistas")))
+        textView.check(matches(withText("Listado de coleccionistas")))
 
         val textView2 = onView(
             allOf(

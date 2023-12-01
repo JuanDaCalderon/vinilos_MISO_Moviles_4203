@@ -49,7 +49,7 @@ class ListarArtistasTest {
 
         val textView = onView(
             allOf(
-                withText("Artistas"),
+                withText("Listado de artistas"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -59,7 +59,7 @@ class ListarArtistasTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Artistas")))
+        textView.check(matches(withText("Listado de artistas")))
 
         val textView2 = onView(
             allOf(

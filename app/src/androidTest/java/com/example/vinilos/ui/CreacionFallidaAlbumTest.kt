@@ -34,7 +34,7 @@ class CreacionFallidaAlbumTest {
         Thread.sleep(1000)
         val textView = onView(
             allOf(
-                withText("Albums"),
+                withText("Listado de albumes"),
                 withParent(
                     allOf(
                         withId(R.id.my_toolbar),
@@ -44,7 +44,7 @@ class CreacionFallidaAlbumTest {
                 isDisplayed()
             )
         )
-        textView.check(matches(withText("Albums")))
+        textView.check(matches(withText("Listado de albumes")))
 
         val textView2 = onView(
             allOf(
@@ -129,7 +129,7 @@ class CreacionFallidaAlbumTest {
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        15
+                        3
                     ),
                     2
                 ),

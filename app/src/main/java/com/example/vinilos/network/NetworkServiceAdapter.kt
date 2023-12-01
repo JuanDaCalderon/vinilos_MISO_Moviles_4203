@@ -10,6 +10,7 @@ import com.android.volley.toolbox.Volley
 import com.example.vinilos.models.Album
 import com.example.vinilos.models.Artista
 import com.example.vinilos.models.Collector
+import com.example.vinilos.models.Tracks
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.coroutines.resume
@@ -38,8 +39,23 @@ class NetworkServiceAdapter constructor(context: Context) {
                         val resp = JSONArray(response)
                         val list = mutableListOf<Album>()
                         var item:JSONObject?
+                        var tracksObjectArray: JSONArray?
+                        var trackList: MutableList<Tracks>
+                        var value:Tracks?
                         for (i in 0 until resp.length()) {
                             item = resp.getJSONObject(i)
+                            tracksObjectArray = item.getJSONArray("tracks")
+                            trackList = mutableListOf<Tracks>()
+
+                            for (a in 0 until tracksObjectArray.length()) {
+                                value = Tracks(
+                                    tracksObjectArray.getJSONObject(a).getInt("id"),
+                                    tracksObjectArray.getJSONObject(a).getString("name"),
+                                    tracksObjectArray.getJSONObject(a).getString("duration")
+                                )
+                                trackList.add(a, value)
+                            }
+
                             list.add(
                                 i,
                                 Album(
@@ -50,6 +66,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                                     item.getString("description"),
                                     item.getString("genre"),
                                     item.getString("recordLabel"),
+                                    trackList
                                 )
                             )
                         }
@@ -94,6 +111,39 @@ class NetworkServiceAdapter constructor(context: Context) {
         return suspendCoroutine
     }
 
+    suspend fun getArtistasByCollector(collectorId: Int): List<Artista> {
+        val suspendCoroutine = suspendCoroutine<List<Artista>> { cont ->
+            requestQueue.add(
+                getRequest("collectors/$collectorId/performers",
+                    { response ->
+                        val resp = JSONArray(response)
+                        val list = mutableListOf<Artista>()
+                        var item:JSONObject?
+                        for (i in 0 until resp.length()) {
+                            item = resp.getJSONObject(i)
+                            list.add(
+                                i,
+                                Artista(
+                                    item.getInt("id"),
+                                    item.getString("name"),
+                                    item.getString("image"),
+                                    item.getString("description"),
+                                    ""
+                                    //item.getString("birthDate"),
+                                )
+                            )
+                        }
+                        cont.resume(list)
+                    },
+                    {
+                        cont.resumeWithException(it)
+                    })
+            )
+        }
+        return suspendCoroutine
+    }
+
+
     suspend fun getCollectors() = suspendCoroutine<List<Collector>>{ cont->
         requestQueue.add(getRequest("collectors",
             { response ->
@@ -114,7 +164,17 @@ class NetworkServiceAdapter constructor(context: Context) {
         requestQueue.add(getRequest("albums/$albumId",
             { response ->
                 val item = JSONObject(response)
-                Log.d("Response Album", item.toString())
+                val tracksObjectArray = item.getJSONArray("tracks")
+                val trackList = mutableListOf<Tracks>()
+                var value:Tracks?
+                for (a in 0 until tracksObjectArray.length()) {
+                    value = Tracks(
+                        tracksObjectArray.getJSONObject(a).getInt("id"),
+                        tracksObjectArray.getJSONObject(a).getString("name"),
+                        tracksObjectArray.getJSONObject(a).getString("duration")
+                    )
+                    trackList.add(a, value)
+                }
                 val album:Album = (Album(
                             item.getInt("id"),
                             item.getString("name"),
@@ -123,6 +183,7 @@ class NetworkServiceAdapter constructor(context: Context) {
                             item.getString("description"),
                             item.getString("genre"),
                             item.getString("recordLabel"),
+                            trackList
                         ))
                 cont.resume(album)
             },
@@ -144,6 +205,24 @@ class NetworkServiceAdapter constructor(context: Context) {
                     item.getString("birthDate"),
                 ))
                 cont.resume(artista)
+            },
+            {
+                cont.resumeWithException(it)
+            }))
+    }
+
+    suspend fun getCollector(collectorId:Int) = suspendCoroutine<Collector>{ cont->
+        requestQueue.add(getRequest("collectors/$collectorId",
+            { response ->
+                val item = JSONObject(response)
+                Log.d("Response Artista", item.toString())
+                val collector:Collector = (Collector(
+                    item.getInt("id"),
+                    item.getString("name"),
+                    item.getString("telephone"),
+                    item.getString("email")
+                ))
+                cont.resume(collector)
             },
             {
                 cont.resumeWithException(it)

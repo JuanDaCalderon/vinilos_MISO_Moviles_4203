@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.CollectorDetalleFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collectorName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_grey_background"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:textSize="24sp"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/labelContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_grey_background"
+        android:textColor="@color/white"
+        android:text="@string/datos_de_contacto"
+        android:textStyle=""
+        android:paddingHorizontal="10sp" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collectorTelephone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_grey_background"
+        android:textColor="@color/white"
+        android:paddingHorizontal="10sp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/collectorMail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_grey_background"
+        android:textColor="@color/white"
+        android:paddingHorizontal="10sp"
+        android:paddingBottom="10sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/labelArtistasFavoritosContacto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_background"
+        android:text="@string/artistas_favoritos"
+        android:textStyle="bold"
+        android:padding="10sp"
+        android:textSize="20sp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/artistasByCollectorRv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/artistas_item"/>
+</LinearLayout>

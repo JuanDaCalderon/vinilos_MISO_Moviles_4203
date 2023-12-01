@@ -14,10 +14,11 @@ class VolleyBroker constructor(context: Context) {
 
     companion object{
         const val BASE_URL= "https://vynils-back-heroku.herokuapp.com/"
-        fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
-            return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)
-        }
         fun postRequest(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
+            return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
+        }
+
+        fun postRequestTracks(path: String, body: JSONObject,  responseListener: Response.Listener<JSONObject>, errorListener: Response.ErrorListener ):JsonObjectRequest{
             return  JsonObjectRequest(Request.Method.POST, BASE_URL+path, body, responseListener, errorListener)
         }
     }
