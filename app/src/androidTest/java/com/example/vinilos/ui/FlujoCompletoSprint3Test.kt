@@ -37,6 +37,7 @@ class FlujoCompletoSprint3Test {
     @Test
     fun flujoCompletoSprint3Test() {
             Thread.sleep(1000)
+        //Sprint 3
         val bottomNavigationItemView = onView(
             allOf(
                 withId(R.id.coleccionistasFragment), withContentDescription("Tracks"),
